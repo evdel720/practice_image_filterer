@@ -16,6 +16,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     var red = 0, green = 0, blue = 0
     var intensity = 5;
     
+    @IBAction func intensity(sender: UISlider) {
+        intensity = Int(sender.value)
+    }
+    
     @IBOutlet weak var imageView: UIImageView!
     
     @IBOutlet var secondaryMenu: UIView!
@@ -189,8 +193,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 let pixel = rgbaImage!.pixels[idx]
                 let redDiff = Int(pixel.red) - red
                 let blueDiff = Int(pixel.blue) - blue
-                rgbaImage!.pixels[idx].red = redDiff > 0 ? UInt8( max(0, min(255, red + redDiff * 5))) : pixel.red
-                rgbaImage!.pixels[idx].blue = blueDiff > 0 ? UInt8( max(0, min(255, blue + blueDiff * 5))) : pixel.blue
+                rgbaImage!.pixels[idx].red = redDiff > 0 ? UInt8( max(0, min(255, red + redDiff * intensity))) : pixel.red
+                rgbaImage!.pixels[idx].blue = blueDiff > 0 ? UInt8( max(0, min(255, blue + blueDiff * intensity))) : pixel.blue
             }
         }
         self.loadFilteredImage()
@@ -204,8 +208,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 let pixel = rgbaImage!.pixels[idx]
                 let redDiff = Int(pixel.red) - red
                 let greenDiff = Int(pixel.green) - green
-                rgbaImage!.pixels[idx].green = greenDiff > 0 ? UInt8( max(0, min(255, green + greenDiff * 5))) : pixel.green
-                rgbaImage!.pixels[idx].red = redDiff > 0 ? UInt8( max(0, min(255, red + redDiff * 5))) : pixel.red
+                rgbaImage!.pixels[idx].green = greenDiff > 0 ? UInt8( max(0, min(255, green + greenDiff * intensity))) : pixel.green
+                rgbaImage!.pixels[idx].red = redDiff > 0 ? UInt8( max(0, min(255, red + redDiff * intensity))) : pixel.red
             }
         }
         self.loadFilteredImage()
@@ -218,7 +222,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 let idx = y * rgbaImage!.width + x
                 let pixel = rgbaImage!.pixels[idx]
                 let blueDiff = Int(pixel.blue) - blue
-                rgbaImage!.pixels[idx].blue = blueDiff > 0 ? UInt8( max(0, min(255, blue + blueDiff * 5))) : pixel.blue
+                rgbaImage!.pixels[idx].blue = blueDiff > 0 ? UInt8( max(0, min(255, blue + blueDiff * intensity))) : pixel.blue
             }
         }
         self.loadFilteredImage()
@@ -230,7 +234,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 let idx = y * rgbaImage!.width + x
                 let pixel = rgbaImage!.pixels[idx]
                 let greenDiff = Int(pixel.green) - green
-                rgbaImage!.pixels[idx].green = greenDiff > 0 ? UInt8( max(0, min(255, green + greenDiff * 5))) : pixel.green
+                rgbaImage!.pixels[idx].green = greenDiff > 0 ? UInt8( max(0, min(255, green + greenDiff * intensity))) : pixel.green
             }
         }
         self.loadFilteredImage()
@@ -242,7 +246,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 let idx = y * rgbaImage!.width + x
                 let pixel = rgbaImage!.pixels[idx]
                 let redDiff = Int(pixel.red) - red
-                rgbaImage!.pixels[idx].red = redDiff > 0 ? UInt8( max(0, min(255, red + redDiff * 5))) : pixel.red
+                rgbaImage!.pixels[idx].red = redDiff > 0 ? UInt8( max(0, min(255, red + redDiff * intensity))) : pixel.red
             }
         }
         self.loadFilteredImage()
