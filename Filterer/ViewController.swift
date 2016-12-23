@@ -15,6 +15,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     var rgbaImage: RGBAImage?
     var red = 0, green = 0, blue = 0
     var intensity = 5;
+    @IBOutlet weak var loader: UIActivityIndicatorView!
     
     @IBAction func intensity(sender: UISlider) {
         intensity = Int(sender.value)
@@ -29,13 +30,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     @IBOutlet weak var compareButton: UIButton!
     
-    @IBAction func handleImageTapped(sender: UITapGestureRecognizer) {
-        imageView.image = originalImage
-        if sender.state == UIGestureRecognizerState.Ended {
-            imageView.image = filteredImage
-        }
-        
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
         originalImage = imageView.image
@@ -121,7 +115,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let bottomConstraint = secondaryMenu.bottomAnchor.constraintEqualToAnchor(bottomMenu.topAnchor)
         let leftConstraint = secondaryMenu.leftAnchor.constraintEqualToAnchor(bottomMenu.leftAnchor)
         let rightConstraint = secondaryMenu.rightAnchor.constraintEqualToAnchor(bottomMenu.rightAnchor)
-        let heightConstraint = secondaryMenu.heightAnchor.constraintEqualToConstant(44)
+        let heightConstraint = secondaryMenu.heightAnchor.constraintEqualToConstant(60)
         
         NSLayoutConstraint.activateConstraints([bottomConstraint, leftConstraint, rightConstraint, heightConstraint])
         
