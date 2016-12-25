@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C81A06EC1E1043A7008D64CD /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81A06EB1E1043A7008D64CD /* PhotoView.swift */; };
 		C8F77FC91E01B3680004C120 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F77FC81E01B3680004C120 /* AppDelegate.swift */; };
 		C8F77FCB1E01B3680004C120 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F77FCA1E01B3680004C120 /* ViewController.swift */; };
 		C8F77FCE1E01B3680004C120 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8F77FCC1E01B3680004C120 /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C81A06EB1E1043A7008D64CD /* PhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
 		C8F77FC51E01B3680004C120 /* Filterer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Filterer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8F77FC81E01B3680004C120 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8F77FCA1E01B3680004C120 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			children = (
 				C8F77FC81E01B3680004C120 /* AppDelegate.swift */,
 				C8F77FCA1E01B3680004C120 /* ViewController.swift */,
+				C81A06EB1E1043A7008D64CD /* PhotoView.swift */,
 				C8F77FDA1E01B6290004C120 /* RGBAImage.swift */,
 				C8F77FCC1E01B3680004C120 /* Main.storyboard */,
 				C8F77FCF1E01B3680004C120 /* Assets.xcassets */,
@@ -141,6 +144,7 @@
 				C8F77FCB1E01B3680004C120 /* ViewController.swift in Sources */,
 				C8F77FC91E01B3680004C120 /* AppDelegate.swift in Sources */,
 				C8F77FDB1E01B6290004C120 /* RGBAImage.swift in Sources */,
+				C81A06EC1E1043A7008D64CD /* PhotoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +304,7 @@
 				C8F77FD91E01B3680004C120 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

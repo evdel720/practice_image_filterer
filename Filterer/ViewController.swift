@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIScrollViewDelegate {
     
     var filteredImage: UIImage?
     var originalImage: UIImage?
@@ -20,11 +20,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func intensity(sender: UISlider) {
         intensity = Int(sender.value)
     }
+    @IBOutlet var zoomTapGestureRecognizer: UITapGestureRecognizer!
     
     @IBOutlet weak var imageView: UIImageView!
     
     @IBOutlet var secondaryMenu: UIView!
     @IBOutlet weak var bottomMenu: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var filterButton: UIButton!
 
@@ -36,6 +38,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.processImageToRGBA()
         secondaryMenu.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
         secondaryMenu.translatesAutoresizingMaskIntoConstraints = false
+        zoomTapGestureRecognizer.numberOfTapsRequired = 2
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -246,6 +249,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.loadFilteredImage()
     }
     
+    @IBAction func onTap(sender: UITapGestureRecognizer) {
+        UIView.animateWithDuration(0.4) { () -> Void in
+            self.scrollView.zoomScale *= 1.5
+        }
+    }
     
+    func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
+        return imageView
+    }
 }
 
